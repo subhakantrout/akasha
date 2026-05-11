@@ -2,8 +2,6 @@
 
 **Akasha** is a state-of-the-art, local-first intelligence portal designed to aggregate, organize, and surface sacred Vedic and Dharmic knowledge. It combines a high-performance knowledge graph, an autonomous ingestion engine, and a private AI "Guru" to make deep spiritual wisdom accessible and interactive.
 
-![Akasha Banner](https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=2070)
-
 ---
 
 ## 🚀 Core Features
