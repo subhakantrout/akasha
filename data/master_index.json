@@ -1,0 +1,54 @@
+{
+    "shruti": {
+        "rigveda": { "status": "archived", "verses": 10552, "source": "local_ingest" },
+        "samaveda": { "status": "archived", "verses": 1875, "source": "local_ingest" },
+        "yajurveda": { "status": "available", "link": "https://ebooks.tirumala.org/download.php?id=5", "source": "TTD Official Archive" },
+        "atharvaveda": { "status": "archived", "verses": 5977, "source": "local_ingest" },
+        "upanishads": {
+            "status": "archived_full",
+            "link": "https://ebooks.tirumala.org/download.php?id=4",
+            "source": "TTD Official (108 Upanisads)"
+        }
+    },
+    "smriti": {
+        "puranas": {
+            "shiva_purana": { "status": "archived_link", "link": "https://ebooks.tirumala.org/download.php?id=14", "source": "TTD Official" },
+            "vishnu_purana": { "status": "available", "link": "https://ebooks.tirumala.org/download.php?id=323", "source": "TTD Official" }
+        },
+        "itihasa": {
+            "mahabharata": { "status": "available", "link": "https://ebooks.tirumala.org/download.php?id=17", "source": "TTD Official" },
+            "ramayana": { "status": "available", "link": "https://ebooks.tirumala.org/download.php?id=20", "source": "TTD Official" }
+        }
+    },
+    "deep_scholarly_archives": {
+        "gretil_sanskrit": {
+            "title": "GRETIL Sanskrit Corpus (Cumulative)",
+            "link": "https://gretil.sub.uni-goettingen.de/gretil/1_sanskr.zip",
+            "description": "Over 1,000 electronic editions of Sanskrit texts, normalized for full-text search.",
+            "status": "available_for_bulk_sync"
+        },
+        "gretil_pali": {
+            "title": "GRETIL Pali Corpus (Cumulative)",
+            "link": "https://gretil.sub.uni-goettingen.de/gretil/2_pali.zip",
+            "description": "Complete Pali canon and related philosophical works.",
+            "status": "available_for_bulk_sync"
+        },
+        "sarit": {
+            "title": "SARIT (Search and Retrieval of Indic Texts)",
+            "link": "https://github.com/SARIT/sarit-data",
+            "description": "High-quality TEI XML encoded texts for computational research.",
+            "status": "available_via_github"
+        },
+        "dcs": {
+            "title": "Digital Corpus of Sanskrit (DCS)",
+            "link": "http://www.sanskrit-lexicon.uni-koeln.de/scans/DCS/index.html",
+            "description": "Morphologically tagged corpus for NLP and linguistic analysis.",
+            "status": "research_ready"
+        }
+    },
+    "metadata": {
+        "unified_source": "Multi-Portal Global Intelligence (TTD + GRETIL + SARIT)",
+        "last_sync": "2026-05-10",
+        "philosophy": "Integrating authoritative digital libraries for a truly universal database."
+    }
+}

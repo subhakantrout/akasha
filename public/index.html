@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AKASHA — Sovereign Vedic Intelligence Portal</title>
+  <meta name="description" content="The world's most comprehensive unified database for Vedic, Dharmic, and ancient Indian knowledge.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='48'>🕉️</text></svg>" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Sans:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Animated Background -->
+  <canvas id="cosmos-bg"></canvas>
+
+  <!-- Main App -->
+  <div id="app" class="app-container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <!-- Brand Section -->
+      <div class="brand-section">
+        <div class="brand-emblem">
+          <span class="om-symbol">ॐ</span>
+          <div class="om-ring"></div>
+        </div>
+        <div class="brand-text">
+          <h1 class="brand-title">AKASHA</h1>
+          <span class="brand-subtitle">Sovereign Knowledge Portal</span>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="search-section">
+        <div class="search-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input type="text" id="globalSearch" class="search-input" placeholder="Search the infinite knowledge...">
+          <button id="semanticToggle" class="semantic-btn" title="AI-Powered Semantic Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a9 9 0 0 1 9 9c0 3.1-1.6 5.8-4 7.4"/>
+              <path d="M12 2a9 9 0 0 0-9 9c0 3.1 1.6 5.8 4 7.4"/>
+              <circle cx="12" cy="11" r="2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="nav-section">
+        <div class="nav-category">
+          <span class="nav-category-label">Primary</span>
+          <div class="nav-item active" data-category="all">
+            <span class="nav-icon">✦</span>
+            <span class="nav-text">All Sacred Texts</span>
+            <span class="nav-count" id="count-all">0</span>
+          </div>
+        </div>
+
+        <div class="nav-category">
+          <span class="nav-category-label">Śruti — श्रुति</span>
+          <div class="nav-item" data-category="rigveda">
+            <span class="nav-icon">🔥</span>
+            <span class="nav-text">Ṛgveda</span>
+            <span class="nav-count" id="count-rigveda">0</span>
+          </div>
+          <div class="nav-item" data-category="samaveda">
+            <span class="nav-icon">♪</span>
+            <span class="nav-text">Sāmaveda</span>
+            <span class="nav-count" id="count-samaveda">0</span>
+          </div>
+          <div class="nav-item" data-category="yajurveda">
+            <span class="nav-icon">⚡</span>
+            <span class="nav-text">Yajurveda</span>
+            <span class="nav-count" id="count-yajurveda">0</span>
+          </div>
+          <div class="nav-item" data-category="atharvaveda">
+            <span class="nav-icon">🪷</span>
+            <span class="nav-text">Atharvaveda</span>
+            <span class="nav-count" id="count-atharvaveda">0</span>
+          </div>
+          <div class="nav-item" data-category="upanishads">
+            <span class="nav-icon">👁</span>
+            <span class="nav-text">Upaniṣads</span>
+            <span class="nav-count" id="count-upanishads">0</span>
+          </div>
+        </div>
+
+        <div class="nav-category">
+          <span class="nav-category-label">Smṛti — स्मृति</span>
+          <div class="nav-item" data-category="puranas">
+            <span class="nav-icon">📜</span>
+            <span class="nav-text">Purāṇas</span>
+            <span class="nav-count" id="count-puranas">0</span>
+          </div>
+          <div class="nav-item" data-category="itihasa">
+            <span class="nav-icon">⚔</span>
+            <span class="nav-text">Itihāsa</span>
+            <span class="nav-count" id="count-itihasa">0</span>
+          </div>
+          <div class="nav-item" data-category="gita">
+            <span class="nav-icon">🕊</span>
+            <span class="nav-text">Bhagavad Gītā</span>
+            <span class="nav-count" id="count-gita">0</span>
+          </div>
+        </div>
+
+        <div class="nav-category">
+          <span class="nav-category-label">Archives</span>
+          <div class="nav-item" data-category="academic">
+            <span class="nav-icon">🏛</span>
+            <span class="nav-text">Scholarly Archives</span>
+            <span class="nav-count" id="count-academic">0</span>
+          </div>
+        </div>
+      </nav>
+
+      <!-- System Status -->
+      <div class="status-section">
+        <div class="status-card">
+          <div class="status-row" id="ollamaStatus">
+            <span class="status-dot offline"></span>
+            <span class="status-text">Guru (AI)</span>
+            <span class="status-label">Connecting...</span>
+          </div>
+          <div class="status-row" id="engineStatus">
+            <span class="status-dot offline"></span>
+            <span class="status-text">Semantic Engine</span>
+            <span class="status-label">Offline</span>
+          </div>
+        </div>
+        <div class="model-selector">
+          <select id="modelSelect" class="model-select">
+            <option value="">Loading models...</option>
+          </select>
+        </div>
+        <div class="stats-footer">
+          <span id="totalCount">0</span> sacred texts indexed
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-area">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <h2 id="pageTitle" class="page-title">All Sacred Texts</h2>
+          <span id="pageSubtitle" class="page-subtitle">The Universal Archive of Dharmic Wisdom</span>
+        </div>
+        <div class="topbar-right">
+          <div class="view-toggles">
+            <button class="view-btn active" data-view="grid" title="Grid View">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+              </svg>
+            </button>
+            <button class="view-btn" data-view="list" title="List View">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>
+                <line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/>
+                <line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Grid -->
+      <div class="content-scroll">
+        <div id="contentGrid" class="content-grid">
+          <div class="loading-state">
+            <div class="loader-outer">
+              <div class="loader-inner"></div>
+            </div>
+            <p>Awakening the Akasha Field...</p>
+          </div>
+        </div>
+        <div class="pagination" id="pagination"></div>
+      </div>
+    </main>
+
+    <!-- Right Panel -->
+    <aside class="right-panel" id="rightPanel">
+      <div class="panel-tabs">
+        <button class="panel-tab active" data-panel="chat">
+          <span class="tab-icon">🙏</span>
+          <span class="tab-text">Guru</span>
+        </button>
+        <button class="panel-tab" data-panel="graph">
+          <span class="tab-icon">🔮</span>
+          <span class="tab-text">Graph</span>
+        </button>
+        <button class="panel-tab" data-panel="log">
+          <span class="tab-icon">📡</span>
+          <span class="tab-text">Feed</span>
+        </button>
+      </div>
+
+      <!-- Chat Panel -->
+      <div class="panel-body active" id="chatPanel">
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-msg guru">
+            <div class="msg-avatar">ॐ</div>
+            <div class="msg-body">
+              <p>Namaste 🙏 I am your guide to the infinite wisdom. Ask me about the Vedas, Upanishads, or any aspect of Dharmic philosophy.</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <div class="chat-input-wrapper">
+            <input type="text" id="chatInput" placeholder="Ask the Guru..." autocomplete="off">
+            <button id="chatSendBtn" class="send-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Graph Panel -->
+      <div class="panel-body" id="graphPanel">
+        <div id="graphContainer" class="graph-container"></div>
+        <div class="graph-overlay">
+          <span class="graph-stats">Knowledge Graph</span>
+          <span class="graph-nodes" id="graphNodeCount">0 nodes</span>
+        </div>
+      </div>
+
+      <!-- Log Panel -->
+      <div class="panel-body" id="logPanel">
+        <div class="log-feed" id="logFeed">
+          <div class="log-entry info">
+            <span class="log-time">00:00:00</span>
+            <span class="log-text">AKASHA Portal initializing...</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-container">
+      <button class="modal-close" id="modalClose">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <div class="modal-header">
+        <span class="modal-badge" id="modalBadge">VEDA</span>
+        <h1 class="modal-title" id="modalTitle">Loading...</h1>
+        <p class="modal-source" id="modalSource"></p>
+      </div>
+
+      <div class="modal-content">
+        <div id="modalText" class="modal-text"></div>
+      </div>
+
+      <div class="modal-actions">
+        <div class="translate-section">
+          <label class="action-label">Translate</label>
+          <div class="action-row">
+            <input type="text" id="translateLang" placeholder="Hindi, English, Tamil..." class="action-input">
+            <button id="translateBtn" class="action-btn">Translate</button>
+          </div>
+          <div id="translateResult" class="action-result"></div>
+        </div>
+
+        <div class="insight-section">
+          <label class="action-label">Guru's Insight</label>
+          <div id="guruInsight" class="insight-text">Click below to request divine guidance...</div>
+          <button id="insightBtn" class="insight-btn">🙏 Ask the Guru</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- External Scripts -->
+  <script src="https://unpkg.com/force-graph@1.51.4/dist/force-graph.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

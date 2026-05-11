@@ -1,0 +1,62 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Runtime Data
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Data and Database
+data/chroma_db/
+data/vault/
+data/temp_*
+*.db
+*.sqlite
+*.sqlite3
+
+# OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build Output
+dist/
+build/
+.next/
+
+# Temporary Files
+.tmp/
+temp/
+*.temp
+
+# IDE
+.vscode/settings.json
+.idea/
+*.code-workspace
+
+# Testing
+coverage/
+.nyc_output/
+
+# Python Virtual Environments
+venv/
+env/
+ENV/
+.venv

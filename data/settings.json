@@ -1,0 +1,6 @@
+{
+  "ai": {
+    "enabled": true,
+    "model": "gemma4:latest"
+  }
+}
