@@ -106,7 +106,7 @@ akasha/
 Contributions to preserve and propagate Vedic knowledge are welcome! Please feel free to open issues or submit pull requests.
 
 ## 📜 License
-This project is licensed under the ISC License.
+This project is licensed under the MIT License.
 
 ---
 *Created with 🙏 to preserve the eternal wisdom of the Vedas.*
