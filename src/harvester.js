@@ -812,5 +812,6 @@ module.exports = {
   startHarvester,
   stopHarvester,
   addJob,
-  getHarvesterStatus
+  getHarvesterStatus,
+  normalizeUrl
 };
