@@ -124,7 +124,7 @@ class VaultManager:
                 try:
                     content = item.get('describe', '') + " " + item.get('text', '')
                     hymn = item.get('hymn', 'unknown')
-                    unique_id = hashlib.md5(f"{hymn}{source_url}".encode()).hexdigest()
+                    unique_id = hashlib.sha256(f"{hymn}{source_url}".encode()).hexdigest()
 
                     cursor.execute(
                         "INSERT OR REPLACE INTO scriptures (id, hymn, content, metadata, source_url) VALUES (?, ?, ?, ?, ?)",
