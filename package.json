@@ -25,7 +25,6 @@
     "express": "^4.21.2",
     "fs-extra": "^11.3.5",
     "mammoth": "^1.12.0",
-    "node-fetch": "^2.7.0",
     "officeparser": "^6.1.1",
     "pdf-parse": "^2.4.5",
     "tesseract.js": "^7.0.0"
