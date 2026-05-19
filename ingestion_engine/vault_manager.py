@@ -179,12 +179,16 @@ class VaultManager:
             logger.error(f"Search failed: {e}")
             return {"ids": [[]], "documents": [[]], "metadatas": [[]]}
 
+    def _get_scriptures_count(self):
+        """Helper method to get the count of scriptures."""
+        cursor = self.conn.cursor()
+        cursor.execute("SELECT COUNT(*) FROM scriptures")
+        return cursor.fetchone()[0]
+
     def get_stats(self):
         """Get database statistics."""
         try:
-            cursor = self.conn.cursor()
-            cursor.execute("SELECT COUNT(*) FROM scriptures")
-            count = cursor.fetchone()[0]
+            count = self._get_scriptures_count()
 
             chroma_count = 0
             if self.collection:
@@ -203,9 +207,7 @@ class VaultManager:
 
     def health_check(self):
         try:
-            cursor = self.conn.cursor()
-            cursor.execute("SELECT COUNT(*) FROM scriptures")
-            count = cursor.fetchone()[0]
+            count = self._get_scriptures_count()
 
             chroma_ok = self.collection is not None
 
