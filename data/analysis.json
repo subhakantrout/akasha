@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-05-09T22:20:51.989Z",
   "stats": {
-    "nodes": 3771,
+    "nodes": 3849,
     "edges": 3203,
     "texts": 3465,
     "mantras": 2128
@@ -29630,6 +29630,786 @@
       "size": 939,
       "harvesterTag": true,
       "sourcePriority": 85
+    },
+    {
+      "id": "wild_18a3d7a9",
+      "label": "Rig Veda Index | Internet Sacred Text Archive",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_18a3d7a9.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 85
+    },
+    {
+      "id": "wild_fe1915a5",
+      "label": "The Rigveda - Wikisource, the free online library",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_fe1915a5.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_27be7f8e",
+      "label": "Client Challenge",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_27be7f8e.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_d5b698bc",
+      "label": "Rigved English PDF - HinduNidhi",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_d5b698bc.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_55bd283a",
+      "label": "The R̥gveda: the complete text with Geldner's and ",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_55bd283a.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_1b10f321",
+      "label": "Rigveda | Vedic Heritage PortalSocial Sidebar",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_1b10f321.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_51ce0bec",
+      "label": "Rig Veda (translation and commentary)",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_51ce0bec.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_72fcbe05",
+      "label": "Rig Veda 10.90.1 [English translation]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_72fcbe05.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_5c3e948e",
+      "label": "Book 9 [English translation]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_5c3e948e.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_85b3735c",
+      "label": "Sukta 90 [English translation]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_85b3735c.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_571bfef1",
+      "label": "Atharva Veda Index | Internet Sacred Text Archive",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_571bfef1.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 85
+    },
+    {
+      "id": "wild_4a212b68",
+      "label": "veda : Sanskrit Documents",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_4a212b68.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 85
+    },
+    {
+      "id": "wild_43adbb95",
+      "label": "rigveda : Sanskrit Documents",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_43adbb95.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 85
+    },
+    {
+      "id": "wild_5727ae60",
+      "label": "Atharvaveda - Wikipedia",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_5727ae60.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 60
+    },
+    {
+      "id": "wild_0190687d",
+      "label": "Complete Rig Veda in English (Sakala Shakha) : Fre",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_0190687d.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_9ba67d63",
+      "label": "Atharva Veda : Ancient : Free Download, Borrow, an",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_9ba67d63.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_aab5c253",
+      "label": "Rigveda in Devanagari and Transliteration with Tra",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_aab5c253.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_991233c7",
+      "label": "Vedic Heritage | Ministry of Culture",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_991233c7.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_da9f7f19",
+      "label": "Online Edition of the Paippalāda Recension of the ",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_da9f7f19.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_196aa00b",
+      "label": "Untitled Knowledge",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_196aa00b.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 85
+    },
+    {
+      "id": "wild_e29efb66",
+      "label": "rigved : Ved Vyas : Free Download, Borrow, and Str",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_e29efb66.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_2ae500cf",
+      "label": "Vedic Heritage Portal - Wikipedia",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_2ae500cf.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 60
+    },
+    {
+      "id": "wild_a21ad69b",
+      "label": "RIGVEDA  - Indian Manuscripts & Antique Books",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_a21ad69b.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_b0699aaf",
+      "label": "The Rigveda: Metrically Restored Text: Book 1",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_b0699aaf.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_478b6e53",
+      "label": "Book 2 [English translation]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_478b6e53.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_c6d00e26",
+      "label": "वाल्मीकि रामायण - हिंदी : महर्षि वाल्मीकि : Free D",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_c6d00e26.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_3ec4e180",
+      "label": "वाल्मीकि रामायण - हिंदी : महर्षि वाल्मीकि : Free D",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_3ec4e180.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_633db899",
+      "label": "श्रीमद्वाल्मीकीय रामायण अरण्यकाण्ड : शास्त्री, चन्",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_633db899.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_980c69bd",
+      "label": "वाल्मीकि रामायण (Ed. Jagdishwaranand) : Ed. Swami ",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_980c69bd.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_7e89de79",
+      "label": "रामायणम् : वाल्मीकि : Free Download, Borrow, and S",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_7e89de79.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_f7d273aa",
+      "label": "Shrimad Valmiki Ramayan - Sanskrit  Text with Hind",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_f7d273aa.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_41a3bac0",
+      "label": "वाल्मीकि रामायण 4 अरण्य कांड : Granth-Nidhi : Free",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_41a3bac0.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_ef9232f7",
+      "label": "वाल्मीकि रामायण सम्पूर्ण सम्पादक :- आर्यमुनि जी : ",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_ef9232f7.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_dc4bd66e",
+      "label": "Shrimad Valmiki Ramayana | श्रीमद वाल्मीकि रामायण ",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_dc4bd66e.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_6a9ef178",
+      "label": "वाल्मीकि रामायण - द्वारका प्रसाद शर्मा : संभाषण - ",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_6a9ef178.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_9ce0e7de",
+      "label": "Vedic Heritage Portal | Vedic Heritage PortalSocia",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_9ce0e7de.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_d20d6c7a",
+      "label": "Ved - Rare Collection of Scripts only at IndianMan",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_d20d6c7a.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_6b05918c",
+      "label": "Rig Veda 1.162.18 [English translation]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_6b05918c.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_9a6dace7",
+      "label": "Book 7 [English translation]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_9a6dace7.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_1efacd91",
+      "label": "Rigveda",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_1efacd91.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 85
+    },
+    {
+      "id": "wild_73a76323",
+      "label": "Rig ved in sanskrit, Rig veda : Sanatan Dharm : Fr",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_73a76323.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_69732bb0",
+      "label": "Full text of \"The Rigveda The Earliest Poetry Of I",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_69732bb0.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_96e90460",
+      "label": "Full text of \"The Rig Veda\"Donate icon",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_96e90460.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_008d2e36",
+      "label": "Rig-veda Samhita : Dutt, Manmatha Nath Ed. : Free ",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_008d2e36.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_6ecc8315",
+      "label": "Rig Veda, SANSKRIT : Free Download, Borrow, and St",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_6ecc8315.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_a64c0c1b",
+      "label": "Full text of \"Ṛg Vēda - English Transliteration ",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_a64c0c1b.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_0bf1f2ac",
+      "label": "RIG VEDA – Download the free English PDF ebook of ",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_0bf1f2ac.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_ae237e1f",
+      "label": "Rig Veda 4.39.4 [English translation]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_ae237e1f.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_f0e46bce",
+      "label": "Rig Veda 4.39.6 [English translation]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_f0e46bce.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_3e6b7341",
+      "label": "Book 4 [English translation]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_3e6b7341.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_6576654a",
+      "label": "Rig Veda 4.39.2 [English translation]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_6576654a.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_01857dbc",
+      "label": "Sukta 164 [English translation]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_01857dbc.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_0141ef9e",
+      "label": "Book 1 [English translation]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_0141ef9e.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_bc8a16cf",
+      "label": "Rigveda, Ṛgveda, Rig-Veda, Ric-veda: 18 definition",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_bc8a16cf.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_04b600e3",
+      "label": "DetlefEichler - Rigveda",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_04b600e3.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_53d11e51",
+      "label": "Virtual e-Text Archive of Indic Texts – INDOLOGY",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_53d11e51.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_71572eb8",
+      "label": "Svatmanirupanam",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_71572eb8.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 85
+    },
+    {
+      "id": "wild_ad6096c0",
+      "label": "Rigveda - Wikipedia",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_ad6096c0.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 60
+    },
+    {
+      "id": "wild_cec4bd52",
+      "label": "स्वात्मनिरूपणम् | Sanskrit Book | Swatmanirupanam ",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_cec4bd52.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_2f8d8f44",
+      "label": "स्वात्मनिरूपणम् | Ambuda",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_2f8d8f44.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_2e924182",
+      "label": "स्वात्मनिरूपणम् (समूलम्) - विकिस्रोतः",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_2e924182.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_d6b12231",
+      "label": "Sanskrit Document List",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_d6b12231.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_0fbd09e6",
+      "label": "Rig Veda. Samhita and Padapatha",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_0fbd09e6.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 50
+    },
+    {
+      "id": "wild_7dbc4bd8",
+      "label": "Sabha Parva [Book 2] [Mahabharata, English]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_7dbc4bd8.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_6374de09",
+      "label": "Sabha Parva [Book 2]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_6374de09.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_330640f3",
+      "label": "Sabha Parva",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_330640f3.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_c67a3bd6",
+      "label": "Sambhava Parva [Mahabharata, English]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_c67a3bd6.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_e8ee286b",
+      "label": "Mahabharata (English)",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_e8ee286b.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_54555e9d",
+      "label": "Mahabharata [sanskrit]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_54555e9d.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_80f4465e",
+      "label": "Book 18 [Mahabharata, English]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_80f4465e.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_646d6dbf",
+      "label": "Rig Veda 8.59.3 [English translation]",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_646d6dbf.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 90
+    },
+    {
+      "id": "wild_7d0da537",
+      "label": "Full text of \"The Rig Veda\"Donate icon",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_7d0da537.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_d1f3c52b",
+      "label": "Ramayana(Ayodhya kanda) : Free Download, Borrow, a",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_d1f3c52b.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_4d0fa1dc",
+      "label": "Ramayana of Valmiki: Ayodhya Kanda : Labhaya, Ram ",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_4d0fa1dc.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_df84e969",
+      "label": "Shrimadvalmiki Ramayana ( Ayodhya Kand) : Sharma, ",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_df84e969.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_c6052264",
+      "label": "Śrīmad Vālmīki-Rāmāyaṇa : with Sanskrit tex",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_c6052264.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_92cbf67f",
+      "label": "Full text of \"Srimad Valmiki Ramayana ( With Sansk",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_92cbf67f.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
+    },
+    {
+      "id": "wild_f02108f0",
+      "label": "Valmiki Ramayana - Ayodhya Kanda with Govindaraja ",
+      "type": "text",
+      "category": "discovered",
+      "vaultFile": "wild_f02108f0.txt",
+      "size": 112,
+      "harvesterTag": true,
+      "sourcePriority": 80
     }
   ],
   "edges": [
