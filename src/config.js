@@ -27,7 +27,9 @@ const config = {
   },
   auth: {
     enabled: process.env.ENABLE_AUTH === 'true',
-    apiKey: process.env.API_KEY || 'default-dev-key',
+    apiKey: process.env.ENABLE_AUTH === 'true' && !process.env.API_KEY
+      ? (() => { throw new Error('API_KEY environment variable is required when ENABLE_AUTH is true'); })()
+      : process.env.API_KEY,
   },
   
   // Rate Limiting
