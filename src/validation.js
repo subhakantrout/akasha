@@ -29,7 +29,7 @@ function sanitizeFilePath(filePath, baseDir) {
   const resolved = path.resolve(filePath);
   const base = path.resolve(baseDir);
   
-  if (!resolved.startsWith(base)) {
+  if (resolved !== base && !resolved.startsWith(base + path.sep)) {
     throw new Error('Path traversal attempt detected');
   }
   
