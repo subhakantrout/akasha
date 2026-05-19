@@ -610,9 +610,15 @@ async function openInternetDiscovery(job) {
     const results = await searchMultipleEngines(query, 15);
     let linkCount = 0;
 
-    for (const result of results) {
-      // Check robots.txt before adding
-      const allowed = await canCrawlUrl(result.url);
+    // Check robots.txt in parallel
+    const checks = await Promise.all(
+      results.map(async (result) => {
+        const allowed = await canCrawlUrl(result.url);
+        return { result, allowed };
+      })
+    );
+
+    for (const { result, allowed } of checks) {
       if (!allowed) {
         STATE.stats.robotsBlocked++;
         logger.debug(`Blocked by robots.txt: ${result.url}`);
