@@ -555,6 +555,108 @@ app.post("/api/harvester/job", (req, res) => {
 // STARTUP & INITIALIZATION
 // ===========================
 
+function initPythonBridge() {
+  if (config.features.semanticSearch) {
+    try {
+      const { spawn } = require('child_process');
+      const pythonProcess = spawn('python', ['ingestion_engine/bridge.py'], {
+        cwd: __dirname,  // Ensure correct working directory
+      });
+
+      pythonProcess.stdout.on('data', (data) => {
+        logger.debug(`Python Bridge: ${data}`.trim());
+      });
+
+      pythonProcess.stderr.on('data', (data) => {
+        // FastAPI/uvicorn logs to stderr by default — treat as debug unless error-like
+        const msg = `${data}`.trim();
+        if (msg.includes('Error') || msg.includes('error') || msg.includes('Traceback')) {
+          logger.error(`Python Bridge Error: ${msg}`);
+        } else {
+          logger.debug(`Python Bridge: ${msg}`);
+        }
+      });
+
+      pythonProcess.on('close', (code) => {
+        if (code !== 0) {
+          logger.warn(`Python bridge exited with code ${code}`);
+        }
+      });
+
+      pythonProcess.on('error', (err) => {
+        logger.warn(`Python bridge spawn failed: ${err.message}. Semantic search will be unavailable.`);
+      });
+
+      process.on('exit', () => { try { pythonProcess.kill(); } catch(e) {} });
+      process.on('SIGINT', () => {
+        try { pythonProcess.kill(); } catch(e) {}
+        process.exit();
+      });
+      process.on('SIGTERM', () => {
+        try { pythonProcess.kill(); } catch(e) {}
+        process.exit();
+      });
+
+      logger.info('🔗 Python Semantic Vector Bridge spawned.');
+    } catch (e) {
+      logger.warn('Could not spawn Python bridge', { error: e.message });
+    }
+  }
+}
+
+async function seedKnowledgeGraph() {
+  const current = await readAnalysis();
+  if (!current.nodes || current.nodes.length === 0) {
+    logger.info('📦 Seeding initial Vedic knowledge graph…');
+    const seed = getSeedData();
+    const fullGraph = mergeGraphs(seed.map(s => s.analysis));
+    await writeAnalysis({
+      generatedAt: new Date().toISOString(),
+      stats: {
+        texts: seed.length,
+        nodes: fullGraph.nodes.length,
+        edges: fullGraph.edges.length
+      },
+      nodes: fullGraph.nodes,
+      edges: fullGraph.edges,
+    });
+    logger.info(`✅ Seeded ${fullGraph.nodes.length} nodes, ${fullGraph.edges.length} edges`);
+  } else {
+    logger.info(`📊 Knowledge graph loaded: ${current.nodes.length} nodes, ${current.edges.length} edges`);
+  }
+}
+
+async function reportVaultStatus() {
+  try {
+    const vaultFiles = await fs.readdir(config.vaultDir);
+    logger.info(`📁 Sovereign Vault: ${vaultFiles.length} sacred texts archived`);
+  } catch (e) {
+    logger.warn('Could not read vault directory', { error: e.message });
+  }
+}
+
+async function checkOllamaStatus() {
+  try {
+    const ollamaStatus = await checkOllama();
+    if (ollamaStatus && ollamaStatus.online) {
+      logger.info(`🧠 Guru online — ${ollamaStatus.models ? ollamaStatus.models.length : 0} models available`);
+    } else {
+      logger.warn('⚠️ Guru (Ollama) is offline');
+    }
+  } catch (e) {
+    logger.warn('Could not reach Ollama', { error: e.message });
+  }
+}
+
+function startHeartbeat() {
+  setInterval(() => {
+    const uptime = process.uptime();
+    const hrs = Math.floor(uptime / 3600);
+    const mins = Math.floor((uptime % 3600) / 60);
+    logger.debug(`💓 System heartbeat — uptime: ${hrs}h ${mins}m`);
+  }, 120000); // Every 2 minutes
+}
+
 async function startup() {
   try {
     // Initialize storage
@@ -562,96 +664,19 @@ async function startup() {
     logger.info('🕉️ AKASHA system initializing…');
     
     // Spawn Python Semantic Bridge (if semantic search enabled)
-    if (config.features.semanticSearch) {
-      try {
-        const { spawn } = require('child_process');
-        const pythonProcess = spawn('python', ['ingestion_engine/bridge.py'], {
-          cwd: __dirname,  // Ensure correct working directory
-        });
-        
-        pythonProcess.stdout.on('data', (data) => {
-          logger.debug(`Python Bridge: ${data}`.trim());
-        });
-        
-        pythonProcess.stderr.on('data', (data) => {
-          // FastAPI/uvicorn logs to stderr by default — treat as debug unless error-like
-          const msg = `${data}`.trim();
-          if (msg.includes('Error') || msg.includes('error') || msg.includes('Traceback')) {
-            logger.error(`Python Bridge Error: ${msg}`);
-          } else {
-            logger.debug(`Python Bridge: ${msg}`);
-          }
-        });
-        
-        pythonProcess.on('close', (code) => {
-          if (code !== 0) {
-            logger.warn(`Python bridge exited with code ${code}`);
-          }
-        });
-        
-        pythonProcess.on('error', (err) => {
-          logger.warn(`Python bridge spawn failed: ${err.message}. Semantic search will be unavailable.`);
-        });
-        
-        process.on('exit', () => { try { pythonProcess.kill(); } catch(e) {} });
-        process.on('SIGINT', () => {
-          try { pythonProcess.kill(); } catch(e) {}
-          process.exit();
-        });
-        process.on('SIGTERM', () => {
-          try { pythonProcess.kill(); } catch(e) {}
-          process.exit();
-        });
-        
-        logger.info('🔗 Python Semantic Vector Bridge spawned.');
-      } catch (e) {
-        logger.warn('Could not spawn Python bridge', { error: e.message });
-      }
-    }
+    initPythonBridge();
     
     // Initialize autonomous harvester
     harvester.initHarvester((msg) => logger.info(msg));
     
     // Load or seed knowledge graph
-    const current = await readAnalysis();
-    if (!current.nodes || current.nodes.length === 0) {
-      logger.info('📦 Seeding initial Vedic knowledge graph…');
-      const seed = getSeedData();
-      const fullGraph = mergeGraphs(seed.map(s => s.analysis));
-      await writeAnalysis({
-        generatedAt: new Date().toISOString(),
-        stats: {
-          texts: seed.length,
-          nodes: fullGraph.nodes.length,
-          edges: fullGraph.edges.length
-        },
-        nodes: fullGraph.nodes,
-        edges: fullGraph.edges,
-      });
-      logger.info(`✅ Seeded ${fullGraph.nodes.length} nodes, ${fullGraph.edges.length} edges`);
-    } else {
-      logger.info(`📊 Knowledge graph loaded: ${current.nodes.length} nodes, ${current.edges.length} edges`);
-    }
+    await seedKnowledgeGraph();
     
     // Report vault status
-    try {
-      const vaultFiles = await fs.readdir(config.vaultDir);
-      logger.info(`📁 Sovereign Vault: ${vaultFiles.length} sacred texts archived`);
-    } catch (e) {
-      logger.warn('Could not read vault directory', { error: e.message });
-    }
+    await reportVaultStatus();
     
     // Check Ollama status
-    try {
-      const ollamaStatus = await checkOllama();
-      if (ollamaStatus && ollamaStatus.online) {
-        logger.info(`🧠 Guru online — ${ollamaStatus.models ? ollamaStatus.models.length : 0} models available`);
-      } else {
-        logger.warn('⚠️ Guru (Ollama) is offline');
-      }
-    } catch (e) {
-      logger.warn('Could not reach Ollama', { error: e.message });
-    }
+    await checkOllamaStatus();
     
     logger.info('✅ AKASHA portal ready. All systems nominal.');
     
@@ -666,12 +691,7 @@ async function startup() {
     });
     
     // Periodic heartbeat
-    setInterval(() => {
-      const uptime = process.uptime();
-      const hrs = Math.floor(uptime / 3600);
-      const mins = Math.floor((uptime % 3600) / 60);
-      logger.debug(`💓 System heartbeat — uptime: ${hrs}h ${mins}m`);
-    }, 120000); // Every 2 minutes
+    startHeartbeat();
   } catch (e) {
     logger.error('Startup failed', { error: e.message });
     process.exit(1);
