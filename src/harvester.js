@@ -5,7 +5,7 @@ const cheerio = require('cheerio');
 const crypto = require('crypto');
 const config = require('./config');
 const logger = require('./logger');
-const { readAnalysis, writeAnalysis, updateAnalysis, readSettings } = require('./store');
+const { readAnalysis, updateAnalysis, readSettings } = require('./store');
 const { askGuru } = require('./ollama');
 const parser = require('./parser');
 
