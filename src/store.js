@@ -38,6 +38,7 @@ async function ensureStorage() {
         ui: { theme: "temple" },
       };
       await fs.writeJson(SETTINGS_FILE, defaultSettings, { spaces: 2 });
+      settingsCache = JSON.parse(JSON.stringify(defaultSettings));
       logger.info('Created settings.json');
     }
   } catch (e) {
@@ -175,13 +176,19 @@ async function updateAnalysis(updaterFn) {
 // SETTINGS OPERATIONS
 // ===============================
 
+let settingsCache = null;
+
 async function readSettings() {
   try {
+    if (settingsCache) {
+      return JSON.parse(JSON.stringify(settingsCache));
+    }
     const data = await fs.readJson(SETTINGS_FILE);
     if (!data || typeof data !== 'object') {
       throw new Error('Invalid settings structure');
     }
-    return data;
+    settingsCache = data;
+    return JSON.parse(JSON.stringify(settingsCache));
   } catch (e) {
     logger.error('Failed to read settings.json', { error: e.message });
     throw new Error(`Cannot read settings: ${e.message}`);
@@ -194,6 +201,7 @@ async function writeSettings(data) {
       throw new Error('Settings must be an object');
     }
     await fs.writeJson(SETTINGS_FILE, data, { spaces: 2 });
+    settingsCache = JSON.parse(JSON.stringify(data));
     logger.debug('Settings saved');
   } catch (e) {
     logger.error('Failed to write settings.json', { error: e.message });
