@@ -1,4 +1,5 @@
 import pytest
+import os
 from unittest.mock import MagicMock, patch
 from ingestion_engine.vault_manager import VaultManager
 
@@ -89,3 +90,24 @@ def test_health_check_execute_error(mock_vault_manager):
         "chromadb_ok": False,
         "error": "Query failed"
     }
+
+def test_add_scripture_invalid_input(tmp_path):
+    """Test that add_scripture raises a ValueError if data_list is not a list."""
+    # Set up temporary paths for sqlite and chromadb
+    db_path = str(tmp_path / "vault.db")
+    chroma_path = str(tmp_path / "chroma_db")
+
+    # Initialize the VaultManager with temporary paths
+    manager = VaultManager(db_path=db_path, chroma_path=chroma_path)
+
+    # Test with a string
+    with pytest.raises(ValueError, match="data_list must be a list"):
+        manager.add_scripture("this is a string, not a list", "http://example.com")
+
+    # Test with a dictionary
+    with pytest.raises(ValueError, match="data_list must be a list"):
+        manager.add_scripture({"text": "some text"}, "http://example.com")
+
+    # Test with None
+    with pytest.raises(ValueError, match="data_list must be a list"):
+        manager.add_scripture(None, "http://example.com")
