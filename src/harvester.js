@@ -648,14 +648,9 @@ async function openInternetEvaluate(job) {
   }
 
   const fileId = `wild_${uid(job.url)}`;
-  const fp = path.join(config.vaultDir, `${fileId}.txt`);
-
-  if (await fs.pathExists(fp)) {
-    logger.info(`URL already archived: ${fileId}`);
-    return;
-  }
-
-  const parsed = await parser.extractTextFromUrl(job.url);
+  const extractResult = await checkVaultAndExtract(job, fileId);
+  if (!extractResult) return;
+  const { fp, parsed } = extractResult;
 
   let rawText = parsed.text;
 
@@ -734,18 +729,26 @@ ${sampleText}${docTypeContext}`;
 // EXTRACTION WORKER
 // ===============================
 
-async function extractTextJob(job) {
-  logger.info(`Extracting: ${job.metadata.label || job.url}`);
-
-  const fileId = `${job.metadata.source}_${uid(job.url)}`;
+async function checkVaultAndExtract(job, fileId) {
   const fp = path.join(config.vaultDir, `${fileId}.txt`);
 
   if (await fs.pathExists(fp)) {
     logger.info(`Already in vault: ${fileId}`);
-    return;
+    return null;
   }
 
   const parsed = await parser.extractTextFromUrl(job.url);
+  return { fp, parsed };
+}
+
+
+async function extractTextJob(job) {
+  logger.info(`Extracting: ${job.metadata.label || job.url}`);
+
+  const fileId = `${job.metadata.source}_${uid(job.url)}`;
+  const extractResult = await checkVaultAndExtract(job, fileId);
+  if (!extractResult) return;
+  const { fp, parsed } = extractResult;
 
   let text = parsed.text;
 
