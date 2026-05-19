@@ -1,8 +1,8 @@
 const crypto = require("crypto");
 
 function generateId(type, value) {
-  // Faster than SHA1 - use simple hash for IDs
-  const hash = crypto.createHash('md5').update(`${type}:${value}`).digest('hex').slice(0, 10);
+  // Use SHA-256 for secure hashing to prevent collision/vulnerabilities
+  const hash = crypto.createHash('sha256').update(`${type}:${value}`).digest('hex').slice(0, 10);
   return `${type}_${hash}`;
 }
 
