@@ -56,7 +56,7 @@ function getRateLimitStatus(identifier) {
 }
 
 // Prune stale entries every 5 minutes to prevent memory leak
-setInterval(() => {
+const intervalId = setInterval(() => {
   const now = Date.now();
   const windowMs = config.rateLimit.windowMs;
   
@@ -71,6 +71,11 @@ setInterval(() => {
     }
   }
 }, 300000);
+
+// Prevent the interval from keeping the Node process alive
+if (intervalId.unref) {
+  intervalId.unref();
+}
 
 module.exports = {
   isRateLimited,
