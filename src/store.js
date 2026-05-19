@@ -105,7 +105,7 @@ async function readAnalysisReference() {
   return analysisCache;
 }
 
-async function readAnalysis(cloned = true) {
+async function readAnalysis(cloned = false) {
   try {
     const data = await readAnalysisReference();
 
@@ -163,7 +163,7 @@ async function updateAnalysis(updaterFn) {
   const release = await analysisMutex;
 
   try {
-    const data = await readAnalysis();
+    const data = await readAnalysis(true);
     await updaterFn(data);
     await writeAnalysis(data);
   } finally {
