@@ -44,7 +44,7 @@ class BatchIngest(BaseModel):
 async def ingest_batch(batch: BatchIngest):
     if not vault.collection:
         return {"status": "error", "message": "ChromaDB not initialized"}
-    count = vault.batch_ingest([d.dict() for d in batch.documents])
+    count = vault.batch_ingest([d.model_dump() for d in batch.documents])
     return {"status": "success", "count": count}
 
 @app.post("/search")

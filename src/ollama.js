@@ -190,7 +190,7 @@ async function askGuru(options) {
     return response;
   } catch (e) {
     logger.error('Guru query failed', { error: e.message });
-    return `The Guru is currently in deep meditation. Error: ${e.message}`;
+    throw e;
   }
 }
 

@@ -297,7 +297,7 @@ app.post("/api/guru/ask", async (req, res) => {
     
     const response = await askGuru({
       prompt: finalPrompt,
-      model: settings.ai.model
+      model: settings.ai.model || undefined
     });
     
     logger.info(`✅ Guru responded (${response ? response.length : 0} chars)`);
@@ -327,7 +327,7 @@ app.post("/api/guru/translate", async (req, res) => {
     
     const response = await askGuru({
       prompt: `Translate the following sacred text to ${cleanLang}. Provide an accurate and respectful translation:\n\n${cleanText}`,
-      model: settings.ai.model,
+      model: settings.ai.model || undefined,
       system: 'You are an expert translator of sacred Vedic and Sanskrit texts. Provide accurate, scholarly translations.'
     });
     

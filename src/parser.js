@@ -85,7 +85,7 @@ function cleanupCache() {
   }
 }
 
-setInterval(cleanupCache, 5 * 60 * 1000); // Every 5 minutes
+setInterval(cleanupCache, 5 * 60 * 1000).unref(); // Every 5 minutes
 
 // ===============================
 // PARSER ENGINE
@@ -223,14 +223,15 @@ async function parseEpub(url, response) {
 
 async function parseOfficeFile(url, response) {
   const buffer = await response.buffer();
-  const tmpPath = path.join(__dirname, `../data/temp_${crypto.randomBytes(4).toString('hex')}`);
+  const ext = url.split('?')[0].split('.').pop();
+  const tmpPath = path.join(__dirname, `../data/temp_${crypto.randomBytes(4).toString('hex')}.${ext}`);
   await fs.writeFile(tmpPath, buffer);
 
-  const text = await officeParser.parseOfficeAsync(tmpPath);
+  const text = await officeParser.parseOffice(tmpPath);
   await fs.remove(tmpPath);
 
   return {
-    text: text.trim(),
+    text: (text && typeof text.trim === 'function') ? text.trim() : (text && text.toText ? text.toText().trim() : String(text)),
     type: 'office/pdf',
     isDocument: true
   };
@@ -276,7 +277,7 @@ async function parseTextOrHtml(url, response, contentType, urlLower) {
   const title = lines[0].substring(0, 80).trim() || path.basename(url);
 
   return {
-    text: text.trim(),
+    text: (text && typeof text.trim === 'function') ? text.trim() : (text && text.toText ? text.toText().trim() : String(text)),
     title,
     type: 'text/xml/csv',
     isDocument: true
