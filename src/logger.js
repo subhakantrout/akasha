@@ -46,7 +46,7 @@ function flushBuffer() {
 }
 
 // Flush buffer periodically
-setInterval(flushBuffer, FLUSH_INTERVAL);
+setInterval(flushBuffer, FLUSH_INTERVAL).unref();
 
 // Also flush on exit
 process.on('beforeExit', flushBuffer);
@@ -75,7 +75,7 @@ function writeLog(level, message, data = null) {
 }
 
 // Log rotation check (less frequent - every 10 minutes)
-setInterval(async () => {
+const logRotator = setInterval(async () => {
   try {
     const stat = await fs.stat(logFile);
     if (stat.size > MAX_LOG_SIZE) {

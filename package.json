@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "akasha",
   "version": "1.0.0",
   "description": "Sovereign Vedic Intelligence Portal",
@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "test": "jest"
+    "test": "jest --forceExit"
   },
   "keywords": [
     "vedic",
