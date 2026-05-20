@@ -203,6 +203,5 @@ function clearCache() {
 module.exports = {
   checkOllama,
   askGuru,
-  getBestModel,
   clearCache,
 };

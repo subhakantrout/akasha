@@ -1,136 +1,187 @@
 [
   {
-    "id": "87e11665",
+    "id": "6e4d4f9f",
     "type": "open_internet_evaluate",
-    "url": "https://sacred-texts.com/hin/rigveda/index.htm",
+    "url": "https://archive.org/details/valmiki-ramayana",
     "metadata": {
       "category": "discovered",
-      "query": "RIGVEDA - 01152 authentic translation pdf",
-      "source": "duckduckgo",
-      "engine": "duckduckgo",
-      "priority": 85,
-      "depth": 0
-    },
-    "addedAt": 1778414468426,
-    "retries": 0,
-    "backoff": 1000,
-    "priority": 85
-  },
-  {
-    "id": "c3e2c706",
-    "type": "open_internet_evaluate",
-    "url": "https://ia803209.us.archive.org/26/items/wg868/WG868-2013-RigVeda.pdf",
-    "metadata": {
-      "category": "discovered",
-      "query": "RIGVEDA - 01152 authentic translation pdf",
+      "query": "Ramayana Ayodhya Kanda Ch 76 site:archive.org",
       "source": "duckduckgo",
       "engine": "duckduckgo",
       "priority": 80,
       "depth": 0
     },
-    "addedAt": 1778414468426,
+    "addedAt": 1779224812992,
     "retries": 0,
     "backoff": 1000,
     "priority": 80
   },
   {
-    "id": "817d8951",
+    "id": "30455e62",
     "type": "open_internet_evaluate",
-    "url": "https://en.wikisource.org/wiki/The_Rigveda",
+    "url": "https://archive.org/details/ValmikiRamayanaAyodhyaKandPurvardhaII1927ChaturvediDwarakaPrasadSharma",
     "metadata": {
       "category": "discovered",
-      "query": "RIGVEDA - 01152 authentic translation pdf",
+      "query": "Ramayana Ayodhya Kanda Ch 76 site:archive.org",
+      "source": "duckduckgo",
+      "engine": "duckduckgo",
+      "priority": 80,
+      "depth": 0
+    },
+    "addedAt": 1779224812992,
+    "retries": 0,
+    "backoff": 1000,
+    "priority": 80
+  },
+  {
+    "id": "cd0165fb",
+    "type": "open_internet_evaluate",
+    "url": "https://archive.org/details/mkcm.srimadbhagavatam0000pskrvol1",
+    "metadata": {
+      "category": "discovered",
+      "query": "Ramayana Ayodhya Kanda Ch 76 site:archive.org",
+      "source": "duckduckgo",
+      "engine": "duckduckgo",
+      "priority": 80,
+      "depth": 0
+    },
+    "addedAt": 1779224812992,
+    "retries": 0,
+    "backoff": 1000,
+    "priority": 80
+  },
+  {
+    "id": "52df2d67",
+    "type": "open_internet_evaluate",
+    "url": "https://archive.org/details/AtharvaVeda_201810",
+    "metadata": {
+      "category": "discovered",
+      "query": "ATHARVAVEDA - 14 ancient manuscript archive",
+      "source": "duckduckgo",
+      "engine": "duckduckgo",
+      "priority": 80,
+      "depth": 0
+    },
+    "addedAt": 1779224813017,
+    "retries": 0,
+    "backoff": 1000,
+    "priority": 80
+  },
+  {
+    "id": "7d08a0e6",
+    "type": "open_internet_evaluate",
+    "url": "https://en.wikipedia.org/wiki/Atharvaveda",
+    "metadata": {
+      "category": "discovered",
+      "query": "ATHARVAVEDA - 14 ancient manuscript archive",
+      "source": "duckduckgo",
+      "engine": "duckduckgo",
+      "priority": 60,
+      "depth": 0
+    },
+    "addedAt": 1779224813019,
+    "retries": 0,
+    "backoff": 1000,
+    "priority": 60
+  },
+  {
+    "id": "b2ce315b",
+    "type": "open_internet_evaluate",
+    "url": "https://vedicheritage.gov.in/vedic-manuscripts-search/",
+    "metadata": {
+      "category": "discovered",
+      "query": "ATHARVAVEDA - 14 ancient manuscript archive",
       "source": "duckduckgo",
       "engine": "duckduckgo",
       "priority": 50,
       "depth": 0
     },
-    "addedAt": 1778414468426,
+    "addedAt": 1779224813019,
     "retries": 0,
     "backoff": 1000,
     "priority": 50
   },
   {
-    "id": "81e9856e",
+    "id": "7b8b60cf",
     "type": "open_internet_evaluate",
-    "url": "https://www.scribd.com/document/46519951/Rig-Veda-Translated-by-Ralph-T-H-Griffith",
+    "url": "https://vedpuran.net/wp-content/uploads/2021/03/atharvaveda.pdf",
     "metadata": {
       "category": "discovered",
-      "query": "RIGVEDA - 01152 authentic translation pdf",
+      "query": "ATHARVAVEDA - 14 ancient manuscript archive",
       "source": "duckduckgo",
       "engine": "duckduckgo",
       "priority": 50,
       "depth": 0
     },
-    "addedAt": 1778414468867,
+    "addedAt": 1779224813020,
     "retries": 0,
     "backoff": 1000,
     "priority": 50
   },
   {
-    "id": "06994494",
+    "id": "d9eec2b7",
     "type": "open_internet_evaluate",
-    "url": "https://hindunidhi.com/rigved-english/",
+    "url": "https://realhinduism.wixsite.com/vedicvault-archive/atharvaveda-content",
     "metadata": {
       "category": "discovered",
-      "query": "RIGVEDA - 01152 authentic translation pdf",
+      "query": "ATHARVAVEDA - 14 ancient manuscript archive",
       "source": "duckduckgo",
       "engine": "duckduckgo",
       "priority": 50,
       "depth": 0
     },
-    "addedAt": 1778414469253,
+    "addedAt": 1779224813231,
     "retries": 0,
     "backoff": 1000,
     "priority": 50
   },
   {
-    "id": "36bc9b5a",
+    "id": "6d377c19",
     "type": "open_internet_evaluate",
-    "url": "https://scholarlypublications.universiteitleiden.nl/handle/1887/3762428",
+    "url": "https://sites.google.com/site/100scriptures/vedas/atharva-veda",
     "metadata": {
       "category": "discovered",
-      "query": "RIGVEDA - 01152 authentic translation pdf",
+      "query": "ATHARVAVEDA - 14 ancient manuscript archive",
       "source": "duckduckgo",
       "engine": "duckduckgo",
       "priority": 50,
       "depth": 0
     },
-    "addedAt": 1778414470610,
+    "addedAt": 1779224813262,
     "retries": 0,
     "backoff": 1000,
     "priority": 50
   },
   {
-    "id": "99db80a6",
+    "id": "8821ad8e",
     "type": "open_internet_evaluate",
-    "url": "https://vedicheritage.gov.in/samhitas/rigveda/",
+    "url": "https://www.atharvavedapaippalada.uzh.ch/en.html",
     "metadata": {
       "category": "discovered",
-      "query": "RIGVEDA - 01152 authentic translation pdf",
+      "query": "ATHARVAVEDA - 14 ancient manuscript archive",
       "source": "duckduckgo",
       "engine": "duckduckgo",
       "priority": 50,
       "depth": 0
     },
-    "addedAt": 1778414470610,
+    "addedAt": 1779224813262,
     "retries": 0,
     "backoff": 1000,
     "priority": 50
   },
   {
-    "id": "5d8cd71f",
+    "id": "1db8cc36",
     "type": "open_internet_evaluate",
-    "url": "https://sri-aurobindo.co.in/workings/matherials/rigveda/01/rigveda_1_eng.pdf",
+    "url": "https://www.celextel.org/vedas/atharva-veda/",
     "metadata": {
       "category": "discovered",
-      "query": "RIGVEDA - 01152 authentic translation pdf",
+      "query": "ATHARVAVEDA - 14 ancient manuscript archive",
       "source": "duckduckgo",
       "engine": "duckduckgo",
       "priority": 50,
       "depth": 0
     },
-    "addedAt": 1778414471514,
+    "addedAt": 1779224813262,
     "retries": 0,
     "backoff": 1000,
     "priority": 50
