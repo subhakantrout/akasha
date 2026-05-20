@@ -1,8 +1,8 @@
 const crypto = require("crypto");
 
 function generateId(type, value) {
-  // Use SHA-256 for secure hashing to prevent collision/vulnerabilities
-  const hash = crypto.createHash('sha256').update(`${type}:${value}`).digest('hex').slice(0, 10);
+  // Faster than SHA1 - use simple hash for IDs
+  const hash = crypto.createHash('md5').update(`${type}:${value}`).digest('hex').slice(0, 10);
   return `${type}_${hash}`;
 }
 
@@ -139,29 +139,17 @@ function mergeGraphs(graphs) {
 }
 
 /**
- * Batch analyze multiple texts efficiently (Yields to event loop)
+ * Batch analyze multiple texts efficiently
  */
-async function batchAnalyze(texts, metadataList) {
+function batchAnalyze(texts, metadataList) {
   const allNodes = [];
   const allEdges = [];
-  const chunkSize = 100;
 
-  for (let i = 0; i < texts.length; i += chunkSize) {
-    const end = Math.min(i + chunkSize, texts.length);
-    for (let j = i; j < end; j++) {
-      const result = analyzeVedicText(texts[j], metadataList[j] || {});
-      allNodes.push(...result.nodes);
-      allEdges.push(...result.edges);
-    }
-
-    // Yield to the event loop so we don't block other tasks
-    if (end < texts.length) {
-      await new Promise(resolve => setImmediate(resolve));
-    }
+  for (let i = 0; i < texts.length; i++) {
+    const result = analyzeVedicText(texts[i], metadataList[i] || {});
+    allNodes.push(...result.nodes);
+    allEdges.push(...result.edges);
   }
-
-  // Yield before starting the merge process
-  await new Promise(resolve => setImmediate(resolve));
 
   // Single merge at the end
   return mergeGraphs([{ nodes: allNodes, edges: allEdges }]);

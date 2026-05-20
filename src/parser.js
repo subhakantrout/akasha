@@ -244,19 +244,12 @@ async function parseTextOrHtml(url, response, contentType, urlLower) {
     const $ = cheerio.load(text);
     $("script, style, nav, header, footer, .navbar, .sidebar, #menu, .ads, .breadcrumb, form, button, .footer, .header, noscript").remove();
 
-    let selectors;
     if (urlLower.includes('wisdomlib.org')) {
-      selectors = ["#scontent", "article", ".content-body"];
+      text = $("#scontent").text().trim() || $("article").text().trim() || $(".content-body").text().trim();
     } else if (urlLower.includes('sacred-texts.com')) {
-      selectors = ["body"];
+      text = $("body").text().trim();
     } else {
-      selectors = ["article", ".content-body", ".post-content", "main", "body"];
-    }
-
-    text = "";
-    for (const selector of selectors) {
-      text = $(selector).text().trim();
-      if (text) break;
+      text = $("article").text().trim() || $(".content-body").text().trim() || $(".post-content").text().trim() || $("main").text().trim() || $("body").text().trim();
     }
 
     const title = $("title").text().trim() || $("h1").first().text().trim() || "Untitled Knowledge";

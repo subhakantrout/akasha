@@ -5,7 +5,7 @@ const cheerio = require('cheerio');
 const crypto = require('crypto');
 const config = require('./config');
 const logger = require('./logger');
-const { readAnalysis, updateAnalysis, readSettings } = require('./store');
+const { readAnalysis, writeAnalysis, updateAnalysis, readSettings } = require('./store');
 const { askGuru } = require('./ollama');
 const parser = require('./parser');
 
@@ -432,7 +432,7 @@ async function processNext() {
 async function triggerAutonomousDiscovery() {
   try {
     logger.info("Queue empty. Generating enhanced discovery mission...");
-    const analysis = await readAnalysis();
+    const analysis = await readAnalysis(false);
 
     // Priority-aware search queries (target authoritative sources)
     const priorityQueries = [
@@ -610,15 +610,9 @@ async function openInternetDiscovery(job) {
     const results = await searchMultipleEngines(query, 15);
     let linkCount = 0;
 
-    // Check robots.txt in parallel
-    const checks = await Promise.all(
-      results.map(async (result) => {
-        const allowed = await canCrawlUrl(result.url);
-        return { result, allowed };
-      })
-    );
-
-    for (const { result, allowed } of checks) {
+    for (const result of results) {
+      // Check robots.txt before adding
+      const allowed = await canCrawlUrl(result.url);
       if (!allowed) {
         STATE.stats.robotsBlocked++;
         logger.debug(`Blocked by robots.txt: ${result.url}`);
@@ -654,9 +648,14 @@ async function openInternetEvaluate(job) {
   }
 
   const fileId = `wild_${uid(job.url)}`;
-  const extractResult = await checkVaultAndExtract(job, fileId);
-  if (!extractResult) return;
-  const { fp, parsed } = extractResult;
+  const fp = path.join(config.vaultDir, `${fileId}.txt`);
+
+  if (await fs.pathExists(fp)) {
+    logger.info(`URL already archived: ${fileId}`);
+    return;
+  }
+
+  const parsed = await parser.extractTextFromUrl(job.url);
 
   let rawText = parsed.text;
 
@@ -735,26 +734,18 @@ ${sampleText}${docTypeContext}`;
 // EXTRACTION WORKER
 // ===============================
 
-async function checkVaultAndExtract(job, fileId) {
-  const fp = path.join(config.vaultDir, `${fileId}.txt`);
-
-  if (await fs.pathExists(fp)) {
-    logger.info(`Already in vault: ${fileId}`);
-    return null;
-  }
-
-  const parsed = await parser.extractTextFromUrl(job.url);
-  return { fp, parsed };
-}
-
-
 async function extractTextJob(job) {
   logger.info(`Extracting: ${job.metadata.label || job.url}`);
 
   const fileId = `${job.metadata.source}_${uid(job.url)}`;
-  const extractResult = await checkVaultAndExtract(job, fileId);
-  if (!extractResult) return;
-  const { fp, parsed } = extractResult;
+  const fp = path.join(config.vaultDir, `${fileId}.txt`);
+
+  if (await fs.pathExists(fp)) {
+    logger.info(`Already in vault: ${fileId}`);
+    return;
+  }
+
+  const parsed = await parser.extractTextFromUrl(job.url);
 
   let text = parsed.text;
 
@@ -821,6 +812,5 @@ module.exports = {
   startHarvester,
   stopHarvester,
   addJob,
-  getHarvesterStatus,
-  normalizeUrl
+  getHarvesterStatus
 };

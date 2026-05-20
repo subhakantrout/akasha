@@ -124,7 +124,7 @@ class VaultManager:
                 try:
                     content = item.get('describe', '') + " " + item.get('text', '')
                     hymn = item.get('hymn', 'unknown')
-                    unique_id = hashlib.sha256(f"{hymn}{source_url}".encode()).hexdigest()
+                    unique_id = hashlib.md5(f"{hymn}{source_url}".encode()).hexdigest()
 
                     cursor.execute(
                         "INSERT OR REPLACE INTO scriptures (id, hymn, content, metadata, source_url) VALUES (?, ?, ?, ?, ?)",
@@ -179,16 +179,12 @@ class VaultManager:
             logger.error(f"Search failed: {e}")
             return {"ids": [[]], "documents": [[]], "metadatas": [[]]}
 
-    def _get_scriptures_count(self):
-        """Helper method to get the count of scriptures."""
-        cursor = self.conn.cursor()
-        cursor.execute("SELECT COUNT(*) FROM scriptures")
-        return cursor.fetchone()[0]
-
     def get_stats(self):
         """Get database statistics."""
         try:
-            count = self._get_scriptures_count()
+            cursor = self.conn.cursor()
+            cursor.execute("SELECT COUNT(*) FROM scriptures")
+            count = cursor.fetchone()[0]
 
             chroma_count = 0
             if self.collection:
@@ -207,7 +203,9 @@ class VaultManager:
 
     def health_check(self):
         try:
-            count = self._get_scriptures_count()
+            cursor = self.conn.cursor()
+            cursor.execute("SELECT COUNT(*) FROM scriptures")
+            count = cursor.fetchone()[0]
 
             chroma_ok = self.collection is not None
 

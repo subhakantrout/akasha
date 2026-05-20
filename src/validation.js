@@ -1,25 +1,4 @@
 const path = require('path');
-const dns = require('dns').promises;
-
-/**
- * Check if an IP address is internal/private
- */
-function isInternalIp(ipStr) {
-  if (!ipStr) return false;
-
-  if (/^127\./.test(ipStr)) return true;
-  if (/^10\./.test(ipStr)) return true;
-  if (/^172\.(1[6-9]|2[0-9]|3[01])\./.test(ipStr)) return true;
-  if (/^192\.168\./.test(ipStr)) return true;
-  if (/^169\.254\./.test(ipStr)) return true; // Link local, AWS IMDS
-  if (/^0\.0\.0\.0/.test(ipStr)) return true;
-  if (ipStr === '::1') return true;
-  if (/^[fF][cCdD]/.test(ipStr)) return true; // IPv6 unique local address
-  if (/^[fF][eE][89aAbB]/.test(ipStr)) return true; // IPv6 link local address
-  if (/^::[fF]{4}:/.test(ipStr)) return true; // IPv4-mapped IPv6 address (e.g., ::ffff:127.0.0.1)
-
-  return false;
-}
 
 /**
  * Sanitize file path to prevent directory traversal attacks
@@ -29,7 +8,7 @@ function sanitizeFilePath(filePath, baseDir) {
   const resolved = path.resolve(filePath);
   const base = path.resolve(baseDir);
   
-  if (resolved !== base && !resolved.startsWith(base + path.sep)) {
+  if (!resolved.startsWith(base)) {
     throw new Error('Path traversal attempt detected');
   }
   
@@ -50,28 +29,20 @@ function sanitizeVaultId(id) {
 /**
  * Validate URL to prevent SSRF attacks
  */
-async function validateUrl(url) {
+function validateUrl(url) {
   try {
     const parsed = new URL(url);
     
-    // Only allow http/https
-    if (!['http:', 'https:'].includes(parsed.protocol)) {
-      throw new Error('Only HTTP/HTTPS protocols allowed');
-    }
-
     // Block localhost/private IPs for web scraping
-    // hostname might have brackets if it's an IPv6 literal (e.g. [2001:db8::1])
-    const hostname = parsed.hostname.replace(/^\[(.*)\]$/, '$1');
+    const hostname = parsed.hostname;
     const blockedPatterns = [
       /^localhost$/,
       /^127\./,
       /^0\.0\.0\.0$/,
       /^::1$/,
-      /^\[::1\]$/,
       /^10\./,
       /^172\.(1[6-9]|2[0-9]|3[01])\./,
       /^192\.168\./,
-      /^169\.254\./
     ];
     
     for (const pattern of blockedPatterns) {
@@ -79,18 +50,10 @@ async function validateUrl(url) {
         throw new Error('SSRF attack: Cannot access internal networks');
       }
     }
-
-    // Do DNS resolution to prevent DNS rebinding attacks
-    let address;
-    try {
-      const result = await dns.lookup(hostname);
-      address = result.address;
-    } catch (e) {
-      throw new Error(`DNS resolution failed for ${hostname}`);
-    }
     
-    if (isInternalIp(address)) {
-      throw new Error('SSRF attack: Resolved to internal IP');
+    // Only allow http/https
+    if (!['http:', 'https:'].includes(parsed.protocol)) {
+      throw new Error('Only HTTP/HTTPS protocols allowed');
     }
     
     return url;
