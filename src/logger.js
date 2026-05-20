@@ -129,4 +129,5 @@ module.exports = {
   info,
   debug,
   getLogs,
+  formatLog,
 };
