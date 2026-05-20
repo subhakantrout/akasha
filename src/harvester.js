@@ -432,7 +432,7 @@ async function processNext() {
 async function triggerAutonomousDiscovery() {
   try {
     logger.info("Queue empty. Generating enhanced discovery mission...");
-    const analysis = await readAnalysis(false);
+    const analysis = await readAnalysis();
 
     // Priority-aware search queries (target authoritative sources)
     const priorityQueries = [

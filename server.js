@@ -169,7 +169,7 @@ app.get("/api/knowledge/graph", async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = Math.min(parseInt(req.query.limit) || 100, 10000); // Max 10000
     
-    const analysis = await readAnalysis(false);
+    const analysis = await readAnalysis();
     validation.validateAnalysisData(analysis);
     
     const startIdx = (page - 1) * limit;
