@@ -389,7 +389,7 @@ app.post("/api/knowledge/scrape", async (req, res) => {
     }
     
     // Validate URL (prevents SSRF)
-    validation.validateUrl(url);
+    await validation.validateUrl(url);
     
     const sanitizedId = nodeId ? 
       validation.sanitizeVaultId(nodeId) : 
