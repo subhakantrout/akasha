@@ -814,7 +814,11 @@ function clearProcessedUrls() {
   }
 }
 
-setInterval(clearProcessedUrls, 60000);
+const cleanupInterval = setInterval(clearProcessedUrls, 60000);
+// Allow interval to be unref'd to prevent keeping event loop alive in tests
+if (cleanupInterval.unref) {
+  cleanupInterval.unref();
+}
 
 module.exports = {
   initHarvester,
@@ -822,5 +826,8 @@ module.exports = {
   stopHarvester,
   addJob,
   getHarvesterStatus,
-  normalizeUrl
+  normalizeUrl,
+  isDuplicateContent,
+  textHashes,
+  getTextHash
 };
