@@ -98,10 +98,12 @@ if (config.auth.enabled) {
     const expected = config.auth.apiKey || '';
     
     // Timing-safe comparison to prevent timing attacks
+    // Hash both values first to prevent length leakage timing attacks
     try {
-      const a = Buffer.from(apiKey, 'utf8');
-      const b = Buffer.from(expected, 'utf8');
-      if (a.length !== b.length || !crypto.timingSafeEqual(a, b)) {
+      const aHash = crypto.createHash('sha256').update(String(apiKey)).digest();
+      const bHash = crypto.createHash('sha256').update(String(expected)).digest();
+
+      if (!crypto.timingSafeEqual(aHash, bHash)) {
         return res.status(401).json({ error: 'Unauthorized' });
       }
     } catch (e) {
